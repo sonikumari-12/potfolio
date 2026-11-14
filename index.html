@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10100f">
+  <meta name="description" content="The portfolio of Your Name, a video editor shaping stories with rhythm, feeling, and purpose.">
+  <title>Your Name — Video Editor</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10100f;
+      --panel: #191917;
+      --text: #f1eee7;
+      --muted: #a7a49b;
+      --accent: #d6ff62;
+      --line: rgba(241, 238, 231, .15);
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: rgba(16, 16, 15, .88); backdrop-filter: blur(14px); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: 15px; font-weight: 750; letter-spacing: -.04em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 30px; align-items: center; color: var(--muted); font-size: 13px; }
+    .nav-links a:hover, .text-link:hover { color: var(--accent); }
+    .nav-cta { color: var(--text) !important; border: 1px solid var(--line); border-radius: 999px; padding: 11px 16px; }
+    .hero { min-height: 670px; display: grid; align-items: center; grid-template-columns: 1.05fr .95fr; gap: 52px; padding: 80px 0 94px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 700; }
+    h1 { font-size: clamp(58px, 8.5vw, 112px); letter-spacing: -.085em; line-height: .91; margin: 22px 0 26px; font-weight: 600; }
+    h1 em { font-family: var(--serif); font-weight: 400; }
+    .intro { max-width: 470px; color: var(--muted); line-height: 1.75; font-size: 16px; }
+    .hero-actions { display: flex; align-items: center; gap: 24px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; gap: 12px; padding: 15px 20px; border-radius: 999px; background: var(--accent); color: #14150f; font-size: 13px; font-weight: 750; transition: transform .2s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .text-link { font-size: 13px; color: var(--muted); }
+    .hero-art { min-height: 420px; position: relative; overflow: hidden; border-radius: 5px; background: radial-gradient(ellipse at 70% 20%, #8d7449 0, transparent 34%), linear-gradient(145deg, #313a34, #191917 57%, #353126); }
+    .hero-art:before { content: ''; position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%; left: 21%; top: 13%; background: linear-gradient(135deg, rgba(214,255,98,.78), rgba(214,255,98,.02) 68%); filter: blur(1px); opacity: .8; }
+    .hero-art:after { content: ''; position: absolute; inset: 45% -15% -40%; transform: rotate(-17deg); background: repeating-linear-gradient(90deg, transparent 0 28px, rgba(255,255,255,.07) 29px 30px), linear-gradient(0deg, #0d0e0d, #31342a); border-top: 1px solid rgba(255,255,255,.2); }
+    .frame-tag { position: absolute; z-index: 1; left: 20px; bottom: 20px; color: rgba(255,255,255,.72); font-size: 10px; text-transform: uppercase; letter-spacing: .15em; }
+    .play-mark { position: absolute; z-index: 1; top: 50%; left: 50%; width: 64px; height: 64px; transform: translate(-50%, -50%); border: 1px solid rgba(255,255,255,.72); border-radius: 50%; display: grid; place-items: center; color: white; font-size: 18px; padding-left: 3px; }
+    section { padding: 100px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 40px; }
+    h2 { margin: 12px 0 0; font-size: clamp(38px, 5vw, 64px); letter-spacing: -.07em; font-weight: 550; line-height: 1; }
+    .section-note { color: var(--muted); font-size: 13px; max-width: 260px; line-height: 1.7; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 38px 22px; }
+    .project { min-width: 0; }
+    .project-art { aspect-ratio: 1.55; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+    .project-art:before, .project-art:after { content: ''; position: absolute; }
+    .art-one { background: linear-gradient(125deg, #573c31, #d19b65 48%, #322621); }
+    .art-one:before { width: 34%; height: 115%; background: linear-gradient(90deg, #181716, #5c4436, #171615); transform: rotate(22deg); left: 29%; top: -8%; border-radius: 50%; filter: blur(2px); }
+    .art-one:after { width: 18%; height: 18%; background: #e4c28e; border-radius: 50%; top: 25%; right: 23%; filter: blur(15px); }
+    .art-two { background: linear-gradient(145deg, #263b3b, #71918a 52%, #152322); }
+    .art-two:before { width: 82%; height: 35%; left: 9%; bottom: -3%; background: linear-gradient(180deg, #b1c9b0, #354f4a 55%, #172725); clip-path: polygon(0 100%, 40% 0, 100% 100%); }
+    .art-two:after { width: 18%; height: 18%; top: 18%; right: 18%; border-radius: 50%; background: #e3d9a5; box-shadow: 0 0 48px #e3d9a5; }
+    .art-three { background: linear-gradient(135deg, #544264, #b38ca7 50%, #303047); }
+    .art-three:before { inset: 16% 26%; border: 1px solid rgba(255,255,255,.7); transform: rotate(-12deg); box-shadow: 18px 12px 0 rgba(255,255,255,.18), -18px -12px 0 rgba(255,255,255,.12); }
+    .art-three:after { width: 28%; height: 120%; background: rgba(20,18,24,.42); transform: rotate(30deg); left: 34%; top: -10%; }
+    .project-art .project-label { position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-size: clamp(22px, 4vw, 42px); color: rgba(255,255,255,.9); text-shadow: 0 2px 20px rgba(0,0,0,.3); }
+    .project-meta { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; }
+    .project-title { font-size: 17px; font-weight: 600; }
+    .project-type { color: var(--muted); font-size: 12px; margin-top: 6px; }
+    .year { color: var(--muted); font-size: 12px; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
+    .about-copy { color: var(--muted); font-size: 17px; line-height: 1.85; max-width: 650px; }
+    .about-copy strong { color: var(--text); font-weight: 500; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-top: 52px; }
+    .service { padding: 22px 20px 0 0; }
+    .service + .service { border-left: 1px solid var(--line); padding-left: 20px; }
+    .service b { display: block; font-size: 14px; margin-bottom: 9px; }
+    .service span { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .contact { padding: 110px 0 120px; background: var(--accent); color: #14150f; border: 0; }
+    .contact .eyebrow { color: #4a5927; }
+    .contact h2 { max-width: 780px; font-size: clamp(46px, 8vw, 100px); }
+    .contact-row { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-top: 45px; }
+    .contact-row p { max-width: 400px; line-height: 1.7; color: #394323; font-size: 14px; }
+    .contact-button { border: 1px solid rgba(20,21,15,.45); padding: 15px 20px; border-radius: 999px; font-weight: 700; font-size: 13px; white-space: nowrap; }
+    .contact-button:hover { background: #14150f; color: var(--accent); }
+    footer { padding: 25px 0; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 11px; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      nav { min-height: 66px; }
+      .nav-links { gap: 16px; font-size: 12px; }
+      .nav-links a:nth-child(2) { display: none; }
+      .nav-cta { padding: 9px 12px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 38px; padding: 76px 0 70px; }
+      .hero-art { min-height: 330px; }
+      section { padding: 76px 0; }
+      .section-head { align-items: start; flex-direction: column; }
+      .projects { grid-template-columns: 1fr; gap: 30px; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .services { grid-template-columns: 1fr; }
+      .service, .service + .service { border-left: 0; border-bottom: 1px solid var(--line); padding: 18px 0; }
+      .contact-row { align-items: start; flex-direction: column; }
+      footer { flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">YOUR NAME<span>.</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Let's talk ↗</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap">
+      <section class="hero" id="home" style="border:0">
+        <div>
+          <div class="eyebrow">Independent video editor · Available for projects</div>
+          <h1>Stories,<br>shaped in<br>the <em>edit.</em></h1>
+          <p class="intro">I’m Your Name — an editor partnering with thoughtful people to turn good footage into films that make you feel something.</p>
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#about">A little about me ↗</a>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Abstract cinematic film still">
+          <span class="play-mark" aria-hidden="true">▶</span>
+          <span class="frame-tag">A frame from somewhere in between · 01:24</span>
+        </div>
+      </section>
+    </div>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">A few recent favorites</div><h2>Selected work</h2></div>
+          <p class="section-note">A collection of stories, shaped with care from first assembly to final frame.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <a href="#contact" aria-label="Ask about the Open Country project">
+              <div class="project-art art-one"><span class="project-label">Open Country</span></div>
+            </a>
+            <div class="project-meta"><div><div class="project-title">Open Country</div><div class="project-type">Brand film · Color &amp; finishing</div></div><span class="year">2025</span></div>
+          </article>
+          <article class="project">
+            <a href="#contact" aria-label="Ask about the Stillwater project">
+              <div class="project-art art-two"><span class="project-label">Stillwater</span></div>
+            </a>
+            <div class="project-meta"><div><div class="project-title">Stillwater</div><div class="project-type">Documentary · Edit</div></div><span class="year">2024</span></div>
+          </article>
+          <article class="project">
+            <a href="#contact" aria-label="Ask about the After Hours project">
+              <div class="project-art art-three"><span class="project-label">After Hours</span></div>
+            </a>
+            <div class="project-meta"><div><div class="project-title">After Hours</div><div class="project-type">Campaign · Story &amp; edit</div></div><span class="year">2024</span></div>
+          </article>
+          <article class="project">
+            <a href="#contact" aria-label="Ask about your next project">
+              <div class="project-art" style="background:linear-gradient(145deg,#8b7150,#363d39 55%,#161917)"><span class="project-label">Your next story</span></div>
+            </a>
+            <div class="project-meta"><div><div class="project-title">Something new</div><div class="project-type">Your project could be here</div></div><span class="year">2026</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div><div class="eyebrow">The person behind the timeline</div><h2>Good stories<br>stay with us.</h2></div>
+          <div>
+            <p class="about-copy">I believe the best edits don’t call attention to themselves — they bring <strong>the right moments together</strong> and let the story do the talking. I work across documentary, brand, and campaign films, bringing a thoughtful eye and a steady hand to every frame.</p>
+            <p class="about-copy">From the first rough cut to the final delivery, I make the process collaborative, clear, and a little more enjoyable.</p>
+          </div>
+        </div>
+        <div class="services" aria-label="Services">
+          <div class="service"><b>Story &amp; editing</b><span>Long-form, short-form, documentary, and narrative.</span></div>
+          <div class="service"><b>Finishing</b><span>Color, sound polish, titles, and delivery.</span></div>
+          <div class="service"><b>Creative support</b><span>Editorial direction, selects, and story development.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="eyebrow">Have a good one in mind?</div>
+        <h2>Let’s make it<br>mean something.</h2>
+        <div class="contact-row">
+          <p>Tell me a little about your project, your timeline, and what you want people to feel. I’d love to hear about it.</p>
+          <a class="contact-button" href="mailto:hello@example.com">hello@example.com ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <span>© <span id="year">2026</span> Your Name. Made with intention.</span>
+    <span><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a> &nbsp;·&nbsp; <a href="https://vimeo.com/" target="_blank" rel="noreferrer">Vimeo ↗</a></span>
+  </footer>
+</body>
+</html>
